@@ -21,7 +21,7 @@ class CuisineCategoryResource(Resource):
         for item in recipes:
             info = item.to_dict()
             a.append(info)
-        return jsonify({'recipes': a})
+        return jsonify(a)
 
 
 class CuisineListResource(Resource):
@@ -32,7 +32,7 @@ class CuisineListResource(Resource):
         for item in recipes:
             info = item.to_dict()
             a.append(info)
-        return jsonify({'recipes': a})
+        return jsonify(a)
 
 
 def abort_if_recipe_not_found(id):
