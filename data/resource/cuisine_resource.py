@@ -10,7 +10,6 @@ class CuisineResource(Resource):
         session = db_session.create_session()
         recipe = session.query(Recipe).get(id)
         info = recipe.to_dict()
-        info["image"] = f"https://kastybiy.herokuapp.com/static/img/cuisine/recipe_{id}.jpg"
         return jsonify({'recipe': info})
 
 
