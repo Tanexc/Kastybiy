@@ -21,7 +21,6 @@ class CuisineCategoryResource(Resource):
         a = []
         for item in recipes:
             info = item.to_dict()
-            info["image"] = f"https://kastybiy.herokuapp.com/static/img/cuisine/recipe_{item.id}.jpg"
             a.append(info)
         return jsonify({'recipes': a})
 
@@ -33,7 +32,6 @@ class CuisineListResource(Resource):
         a = []
         for item in recipes:
             info = item.to_dict()
-            info["image"] = f"https://kastybiy.herokuapp.com/static/img/recipe_{item.id}.jpg"
             a.append(info)
         return jsonify({'recipes': a})
 

@@ -22,6 +22,11 @@ api.add_resource(places_resource.PlaceResource, "/api/get/place/<id>")
 api.add_resource(places_resource.PlaceListResource, "/api/get/places")
 
 
+@app.route("/")
+def base():
+    return render_template("base.html")
+
+
 @app.route("/home")
 def home():
     return render_template("home.html")
@@ -43,5 +48,6 @@ def places():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run()
+   # app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
