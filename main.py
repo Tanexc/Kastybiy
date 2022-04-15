@@ -22,7 +22,7 @@ api.add_resource(places_resource.PlaceResource, "/api/get/place/<id>")
 api.add_resource(places_resource.PlaceListResource, "/api/get/places")
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def base():
     return render_template("base.html")
 

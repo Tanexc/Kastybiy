@@ -10,7 +10,7 @@ class CuisineResource(Resource):
         session = db_session.create_session()
         recipe = session.query(Recipe).get(id)
         info = recipe.to_dict()
-        return jsonify({'recipe': info})
+        return jsonify(info)
 
 
 class CuisineCategoryResource(Resource):
