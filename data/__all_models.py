@@ -1,3 +1,2 @@
 from . import cuisine
-from . import places
-from . import culture
+from . import products

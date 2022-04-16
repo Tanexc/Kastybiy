@@ -1,22 +1,22 @@
 import os
 from flask import Flask, render_template
 from data import db_session
-from data.resource import cuisine_resource, culture_resource, places_resource
+from data.resource import cuisine_resource, products_resource
 from flask_restful import Api
 
-#Initialization
+# Initialization
 db_session.global_init("db/kastybiy.db")
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "dvrQYr4v62d"
 
-#Api initialization
+# Api initialization
 api = Api(app)
 api.add_resource(cuisine_resource.CuisineListResource, "/api/get/cuisine")
 api.add_resource(cuisine_resource.CuisineResource, "/api/get/cuisine/<id>")
 api.add_resource(cuisine_resource.CuisineCategoryResource, "/api/get/cuisine/<category>")
 
-#api.add_resource(culture_resource.ProductsResource, "/api/get/products/<id>")
-#api.add_resource(culture_resource.ProductsListResource, "/api/get/products")
+api.add_resource(products_resource.ProductsResource, "/api/get/products/<id>")
+api.add_resource(products_resource.ProductsListResource, "/api/get/products")
 
 
 @app.route("/", methods=["GET"])
@@ -36,7 +36,7 @@ def cuisine():
 
 @app.route("/culture")
 def culture():
-    return render_template("culture.html")
+    return render_template("card.html")
 
 
 @app.route("/places")
@@ -45,6 +45,5 @@ def places():
 
 
 if __name__ == "__main__":
-    #app.run()
+    # app.run()
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
