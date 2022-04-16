@@ -15,11 +15,8 @@ api.add_resource(cuisine_resource.CuisineListResource, "/api/get/cuisine")
 api.add_resource(cuisine_resource.CuisineResource, "/api/get/cuisine/<id>")
 api.add_resource(cuisine_resource.CuisineCategoryResource, "/api/get/cuisine/<category>")
 
-api.add_resource(culture_resource.CultureResource, "/api/get/culture/<id>")
-api.add_resource(culture_resource.CultureListResource, "/api/get/culture")
-
-api.add_resource(places_resource.PlaceResource, "/api/get/place/<id>")
-api.add_resource(places_resource.PlaceListResource, "/api/get/places")
+#api.add_resource(culture_resource.ProductsResource, "/api/get/products/<id>")
+#api.add_resource(culture_resource.ProductsListResource, "/api/get/products")
 
 
 @app.route("/", methods=["GET"])
@@ -48,6 +45,6 @@ def places():
 
 
 if __name__ == "__main__":
-    #app.run()
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run()
+    #app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
